@@ -1,9 +1,10 @@
 const express = require('express');
 const app = express();
 const Users = require('./data/user');
+var methodOverride = require('method-override')
 
 app.use(express.urlencoded({extended:true}))
-
+app.use(methodOverride('_method'))
 app.set('view engine','ejs');
 
 app.get('/',(req,res)=>{
@@ -41,7 +42,7 @@ app.get('/users/:id/edit',(req,res)=>{
     res.render('edit',{user})
 })
 
-app.post('/abc/:id',(req,res)=>{
+app.patch('/users/:id',(req,res)=>{
     const {id} = req.params;
     let user = Users.find((user)=> user.id==id);
     const {name , password,email,city} = req.body;
@@ -53,7 +54,7 @@ app.post('/abc/:id',(req,res)=>{
     res.redirect('/users')
 })
 
-app.post('/delete/:id',(req,res)=>{
+app.delete('/users/:id',(req,res)=>{
     const {id} = req.params;
     let user = Users.find((user)=> user.id==id);
     let ind = Users.indexOf(user);

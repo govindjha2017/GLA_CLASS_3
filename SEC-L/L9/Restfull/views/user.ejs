@@ -21,7 +21,7 @@
                <p><%= user.city %></p>
                <a href="/users/<%=user.id%>">Show</a>
                <a href="/users/<%=user.id%>/edit">Edit</a>
-               <form action="/delete/<%=user.id%>" method="post">
+               <form action="/users/<%=user.id%>?_method=Delete" method="post">
                   <button>delete</button>
                </form>
             </div>
