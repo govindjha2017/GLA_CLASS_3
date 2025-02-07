@@ -1,0 +1,86 @@
+test> show dbs
+SEC-AA           24.00 KiB
+SEC-AA-Restfull  72.00 KiB
+SEC-D            24.00 KiB
+SEC-D-Restfull   24.00 KiB
+SEC-L            24.00 KiB
+SEC-L-Restfull   72.00 KiB
+SEC-Q            24.00 KiB
+Sec-Q-Restfull   72.00 KiB
+admin            40.00 KiB
+config           60.00 KiB
+test>
+learnMongo_AA    72.00 KiB
+learnMongoSEC-D>
+switched to db learnMongoSEC-D
+learnMongoSEC-D>
+
+learnMongoSEC-D>
+{ ok: 1 }
+learnMongoSEC-D> db.studet.insertOne({name:'rahu',age:'34'})
+{
+  acknowledged: true,
+  insertedId: ObjectId('67a2f35974a0f6f576cb0ce2')
+}
+learnMongoSEC-D> db.student.insertOne({name:'rahu',age:'34'})
+{
+  acknowledged: true,
+  insertedId: ObjectId('67a2f39274a0f6f576cb0ce3')
+}
+learnMongoSEC-D> db.student.insertMany([{name:'ajay',age:45},{name:'golu',age:25}])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('67a2f44b74a0f6f576cb0ce4'),
+    '1': ObjectId('67a2f44b74a0f6f576cb0ce5')
+  }
+}
+learnMongoSEC-D> db.student.find({})
+[
+  {
+    _id: ObjectId('67a2f39274a0f6f576cb0ce3'),
+    name: 'rahu',
+    age: '34'
+  },
+  { _id: ObjectId('67a2f44b74a0f6f576cb0ce4'), name: 'ajay', age: 45 },
+  { _id: ObjectId('67a2f44b74a0f6f576cb0ce5'), name: 'golu', age: 25 }
+]
+learnMongoSEC-D> db.student.find({name:'ajay'})
+[
+  { _id: ObjectId('67a2f44b74a0f6f576cb0ce4'), name: 'ajay', age: 45 }
+]
+learnMongoSEC-D> db.student.updateOne({name:'ajay'},{$set:{age:15})
+Uncaught:
+SyntaxError: Unexpected token, expected "," (1:49)
+
+> 1 | db.student.updateOne({name:'ajay'},{$set:{age:15})
+    |                                                  ^
+  2 |
+
+learnMongoSEC-D> db.student.updateOne({name:'ajay'},{$set:{age:15}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+learnMongoSEC-D> learnMongoSEC-D>
+[
+learnMongoSEC-D>
+
+learnMongoSEC-D> db.student.updateMany({},{&set:{gender:'male'}})
+Uncaught:
+learnMongoSEC-D>
+
+learnMongoSEC-D> db.student.updateMany({},{$set:{gender:'male'}})
+{   |                           ^
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 3,
+  modifiedCount: 3,
+  upsertedCount: 0
+}
+learnMongoSEC-D> db.student.deleteOne({name:'rahu'})
+{ acknowledged: true, deletedCount: 1 }
+learnMongoSEC-D>

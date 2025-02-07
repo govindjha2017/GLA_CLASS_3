@@ -1,0 +1,22 @@
+1. Show Databases:    show dbs
+
+2. Switch Database: use mydatabase
+
+3. Show Collections:  show collections
+
+
+4. Insert Documnet : db.collection.insertOne({name: "Alice", age: 25})
+
+
+5. Find Documents:  db.collection.find()
+
+6. UPDATE :
+     db.collection.updateOne(
+  { name: "Alice" },
+  { $set: { age: 26 } }
+)
+
+
+7. Delete:
+
+	db.collection.deleteOne({ name: "Alice" })

@@ -1,0 +1,7 @@
+blogSchema = {
+    title:String,
+    content:String,
+    createdAt:TimetStamp
+}
+
+perform crud operatin using CSR
