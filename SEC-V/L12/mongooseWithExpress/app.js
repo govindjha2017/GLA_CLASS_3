@@ -51,6 +51,18 @@ app.put('/products/:id',async (req,res)=>{
     res.redirect('/products')
 })
 
+app.delete('/products/:id',async(req,res)=>{
+    const {id} = req.params;
+    await Product.deleteOne({_id:id});
+    res.redirect('back')
+})
+
+app.get('/products/:id',async (req,res)=>{
+    const {id} = req.params;
+    const product = await Product.findById(id);
+    res.render('show',{product})
+})
+
 app.listen(4000,()=>{
     console.log('server run at port 4000')
 })
