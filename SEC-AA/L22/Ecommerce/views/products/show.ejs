@@ -20,11 +20,38 @@
         <h2 class="display-6">Review</h2>
 
         <form action="/products/<%=product._id %>/review" method="post">
-            <input type="range" min="1" max="5" name="rating">
+            <!-- <input type="range" min="1" max="5" name="rating"> -->
+            <fieldset class="starability-basic">
+                <legend>First rating:</legend>
+                <input type="radio" id="no-rate" class="input-no-rate" name="rating" value="0" checked aria-label="No rating." />
+                <input type="radio" id="first-rate1" name="rating" value="1" />
+                <label for="first-rate1" title="Terrible">1 star</label>
+                <input type="radio" id="first-rate2" name="rating" value="2" />
+                <label for="first-rate2" title="Not good">2 stars</label>
+                <input type="radio" id="first-rate3" name="rating" value="3" />
+                <label for="first-rate3" title="Average">3 stars</label>
+                <input type="radio" id="first-rate4" name="rating" value="4" />
+                <label for="first-rate4" title="Very good">4 stars</label>
+                <input type="radio" id="first-rate5" name="rating" value="5" />
+                <label for="first-rate5" title="Amazing">5 stars</label>
+              </fieldset>
             <br>
             <textarea rows="4" cols="20" name="comment"></textarea>
             <br>
             <button>Submit</button>
         </form>
+
+        <% for(let review of product.reviews){ %>
+             <div class="card" style="width: 200px;">
+                <div class="card-header">
+                    <p class="starability-result" data-rating="<%=review.rating %>">
+                        Rated: 3 stars
+                      </p>
+                </div>
+                <div class="card-body">
+                    <p><%=review.comment %></p>
+                </div>
+             </div>
+        <% } %>
     </div>
 </div>
