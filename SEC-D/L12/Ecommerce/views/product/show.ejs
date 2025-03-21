@@ -34,5 +34,19 @@
             <textarea name="comment"></textarea><br>
             <button>Submit</button>
         </form>
+
+       <% for(let review of product.reviews){ %>
+           <div style="width: 250px;" class="card">
+            <div class="card-header">
+              
+              <p class="starability-result" data-rating="<%=review.rating %>">
+                Rated: 3 stars
+              </p>
+            </div>
+            <div class="card-body">
+              <%=review.comment %>
+            </div>
+           </div>
+       <% } %>
     </div>
 </div>

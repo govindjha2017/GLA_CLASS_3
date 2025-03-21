@@ -9,7 +9,7 @@ router.get('/products',async(req,res)=>{
 
 router.get('/products/:id',async (req,res)=>{
     const {id} = req.params;
-    let product = await Product.findById(id);
+    let product = await Product.findById(id).populate('reviews');
     res.render('product/show',{product})
 })
 
