@@ -4,7 +4,7 @@ const path = require('path');
 const ejsMate = require('ejs-mate');
 const methodOverride = require('method-override');
 const passport = require('passport');
-const localStratgey = require('passport-local');
+const LocalStrategy = require('passport-local');
 const session = require('express-session');
 const User = require('./model/user')
 
@@ -51,8 +51,8 @@ app.use(productRoutes)
 const reviewRoutes = require('./routes/review');
 app.use(reviewRoutes)
 
-const autRoutes = require('./routes/auth');
-app.use(autRoutes);
+const authRoutes = require('./routes/auth');
+app.use(authRoutes);
  
 const PORT = 5000;
 app.listen(PORT,()=>{
