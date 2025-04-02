@@ -1,0 +1,32 @@
+<% layout('layout/boilerplate.ejs') -%>
+
+<div class="row">
+    <div class="col-lg-6 col-sm-12">
+        <div class="card" style="width: 18rem;">
+            <img style="height: 200px;" src="<%= product.image %>" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title"><%= product.name %></h5>
+              <h5 class="card-title"><%= product.price %></h5>
+              <p class="card-text"><%= product.desc %></p>
+              <a href="/products/<%= product._id %>" class="btn btn-primary">Show</a>
+              <% if(currUser?.role=="seller"){ %>
+                <a href="/products/<%= product._id %>/edit" class="btn btn-warning">Edit</a>
+                <form style="display: inline-block;" action="/product/<%=product._id%>?_method=delete" method="post">
+                  <button class="btn btn-danger">Delete</button>
+                </form>
+            <% } %>
+            </div>
+          </div>
+    </div>
+    <div class="col-lg-6 col-sm-12">
+        <h2 class="display-6">Review</h2>
+
+        <form action="/products/<%=product._id%>/review" method="post">
+            <input type="range" min="1" max="5" name="rating">
+            <br>
+            <textarea rows="4" cols="20" name="comment"></textarea>
+            <br>
+            <button class="btn btn-secondary">Submit</button>
+        </form>
+    </div>
+</div>

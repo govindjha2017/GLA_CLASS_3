@@ -1,0 +1,52 @@
+<% layout('layout/boilerplate.ejs') -%>
+
+<div class="row">
+    <div class="col-lg-6 col-sm-12">
+        <div class="card" style="width: 18rem;">
+            <img style="height: 200px;" src="<%= product.image %>" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title"><%= product.name %></h5>
+              <h5 class="card-title"><%= product.price %></h5>
+              <p class="card-text"><%= product.desc %></p>
+              <a href="/products/<%= product._id %>" class="btn btn-primary">Show</a>
+            </div>
+          </div>
+    </div>
+    <div class="col-lg-6 col-sm-12">
+        <h2>Reviews</h2>
+        <form action="/products/<%=product._id%>/review" method="post">
+            <!-- <input type="range" min="1"b max="5" name="rating"><br> -->
+            <fieldset class="starability-basic">
+                <legend> </legend>
+                <input type="radio" id="no-rate" class="input-no-rate" name="rating" value="0" checked aria-label="No rating." />
+                <input type="radio" id="first-rate1" name="rating" value="1" />
+                <label for="first-rate1" title="Terrible">1 star</label>
+                <input type="radio" id="first-rate2" name="rating" value="2" />
+                <label for="first-rate2" title="Not good">2 stars</label>
+                <input type="radio" id="first-rate3" name="rating" value="3" />
+                <label for="first-rate3" title="Average">3 stars</label>
+                <input type="radio" id="first-rate4" name="rating" value="4" />
+                <label for="first-rate4" title="Very good">4 stars</label>
+                <input type="radio" id="first-rate5" name="rating" value="5" />
+                <label for="first-rate5" title="Amazing">5 stars</label>
+              </fieldset> 
+
+            <textarea name="comment"></textarea><br>
+            <button>Submit</button>
+        </form>
+
+       <% for(let review of product.reviews){ %>
+           <div style="width: 250px;" class="card">
+            <div class="card-header">
+              
+              <p class="starability-result" data-rating="<%=review.rating %>">
+                Rated: 3 stars
+              </p>
+            </div>
+            <div class="card-body">
+              <%=review.comment %>
+            </div>
+           </div>
+       <% } %>
+    </div>
+</div>
