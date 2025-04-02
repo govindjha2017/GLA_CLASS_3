@@ -11,10 +11,16 @@ const userSchema = new mongoose.Schema({
         required:true
     },
     cart: [
-        {
+      {
+        productId: {
             type: mongoose.Schema.Types.ObjectId,
             ref:'Product'
+        },
+        quantity:{
+            type:Number,
+            default:1
         }
+      }
     ]
 })
 userSchema.plugin(passportLocalMongoose);

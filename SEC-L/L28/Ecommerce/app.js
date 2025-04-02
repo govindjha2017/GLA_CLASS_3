@@ -57,6 +57,9 @@ app.use(reviewRoutes)
 
 const authRoutes = require('./routes/auth');
 app.use(authRoutes);
+
+const cartRoutes = require('./routes/cart');
+app.use(cartRoutes);
  
 const PORT = 5000;
 app.listen(PORT,()=>{

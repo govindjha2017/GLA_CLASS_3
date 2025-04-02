@@ -20,7 +20,7 @@
                 </form>
              <% } %>
              <% if(currUser?.role=="buyer"){ %>
-               <a href="/product/<%= product._id%>" class="btn btn-success">Add to Cart</a>
+               <a href="/user/cart/add/<%= product._id%>" class="btn btn-success">Add to Cart</a>
              <% } %>
             </div>
           </div>
