@@ -1,0 +1,21 @@
+<% layout('layout/boilerplate.ejs') -%>
+
+<!-- <%= cart %> -->
+
+<%for(let product of cart){ %>
+    <!-- <%= product %> -->
+
+    <div class="card" style="width: 18rem;">
+        <img style="height: 200px;" src="<%= product.productId.image %>" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title"><%= product.productId.name %></h5>
+          <h5 class="card-title">$<%= product.productId.price %></h5>
+          <h5>
+            <a class="btn btn-primary" href="/users/cart/add/<%= product.productId._id %>">+</a>
+            <span><%= product.qauntity %></span>
+            <a class="btn btn-primary" href="/users/cart/remove/<%= product.productId._id %>">-</a>
+          </h5>
+        </div>
+      </div>
+
+<%}%>
