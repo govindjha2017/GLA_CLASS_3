@@ -1,0 +1,34 @@
+<% layout('layout/boilerplate.ejs') -%>
+
+<!-- <%= cart %> -->
+
+<div style="display: flex; gap: 70px;">
+  <div>
+    <%for(let product of cart){%>
+      <!-- <%= product %> -->
+      <div class="card" style="width: 18rem;">
+          <img style="height: 200px;" src="<%= product.productId.image %>" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title"><%=  product.productId.name %></h5>
+            <h5 class="card-title">$<%=  product.productId.price %></h5>
+              <h5 class="card-title">
+                  <a class="btn btn-primary" href="/users/cart/add/<%=product.productId._id%>">+</a>
+                  <span><%=product.qantity%></span>
+                  <a class="btn btn-primary" href="/users/cart/remove/<%=product.productId._id%>">-</a>
+              </h5>
+          </div>
+        </div>
+  <%}%>
+  </div>
+  <div>
+    vadkj
+
+    <ol>
+      <%for(let product of cart){%>
+          <li style="font-size: large;"><%=  product.productId.name %>   <%=  product.qantity %>*<%=  product.productId.price %>  = <%=  product.qantity * product.productId.price %> </li>
+      <%}%>
+    </ol>
+    <h3>Total price = <%=totalPrice %></h3>
+    <h3><button class="btn btn-primary">Place order</button></h3>
+  </div>
+</div>
