@@ -1,0 +1,28 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.parent{
+    display: flex;
+    border: 2px solid black;
+    justify-content: center;
+    height: 100vh;
+    gap: 20px;
+}
+
+.btn{
+    height: 50px;
+    width: 50px;
+}
+
+.btn-red{
+    background-color: red;
+}
+
+.btn-blue{
+    background-color: blue;
+}
+
+.btn-green{
+    background-color: green;
+}
