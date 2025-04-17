@@ -1,0 +1,43 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.nav{
+    height: 75px;
+    background-color: #F7F4ED;
+    border-bottom: 1px solid black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo{
+    /* border: 2px solid red; */
+    margin-left: 70px;
+    height: 35px;
+}
+
+.link{
+    /* border: 2px solid red; */
+    margin-right: 75px;
+    height: 35px;
+}
+
+.link a{
+    color: black;
+    text-decoration: none;
+    margin-left: 18px;
+
+    font-size: 1.1em;
+}
+
+
+#linkSpcl{
+    background-color: black;
+    color: white;
+    padding: 10px;
+    border-radius: 99em;
+    width: 90px;
+    display: inline-block;
+    text-align: center;
+}
