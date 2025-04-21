@@ -1,0 +1,22 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.nav{
+    border: 2px solid black;
+    display: flex;
+    justify-content: space-between;
+    height: 60px;
+    align-items: center;
+    background-color: yellow;
+}
+
+.navList{
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+}
+
+.navList li{
+    margin-right: 20px;
+}

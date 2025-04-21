@@ -1,0 +1,21 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.nav{
+    border: 2px solid black;
+    display: flex;
+    justify-content: space-between;
+    height: 70px;
+    align-items: center;
+    background-color: yellow;
+}
+
+.navLink{
+    display: flex;
+}
+
+.navLink li{
+    margin-right: 20px;
+    list-style-type: none;
+}
